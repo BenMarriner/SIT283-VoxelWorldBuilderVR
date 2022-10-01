@@ -21,7 +21,7 @@ public class BlockComponent : MonoBehaviour
             z = Mathf.Round(transform.position.z)
         };
 
-        _block = BlockManager.SpawnBlock(blockPosition);
+        _block = BlockManager.SpawnBlock(blockPosition, this);
     }
 
     private void Update()

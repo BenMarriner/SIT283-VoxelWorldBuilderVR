@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.sit283worldbuildervr.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\Game Engines\\Unity Projects\\SIT283-VoxelWorldBuilderVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "SIT283-WorldBuilderVR [Testing]"
+        }
+      }
+    }
+  ]
+}

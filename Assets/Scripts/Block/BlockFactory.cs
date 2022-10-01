@@ -5,14 +5,16 @@ using UnityEngine;
 
 public static class BlockFactory
 {
-    private static readonly Vector3 v0 = new Vector3(0.0f, 0.0f, 0.0f);
-    private static readonly Vector3 v1 = new Vector3(1.0f, 0.0f, 0.0f);
-    private static readonly Vector3 v2 = new Vector3(0.0f, 1.0f, 0.0f);
-    private static readonly Vector3 v3 = new Vector3(1.0f, 1.0f, 0.0f);
-    private static readonly Vector3 v4 = new Vector3(0.0f, 0.0f, 1.0f);
-    private static readonly Vector3 v5 = new Vector3(1.0f, 0.0f, 1.0f);
-    private static readonly Vector3 v6 = new Vector3(0.0f, 1.0f, 1.0f);
-    private static readonly Vector3 v7 = new Vector3(1.0f, 1.0f, 1.0f);
+    private static readonly Vector3 vOffset = Vector3.one * -0.5f;
+    private static readonly Vector3 v0 = new Vector3(0.0f, 0.0f, 0.0f) + vOffset;
+    private static readonly Vector3 v1 = new Vector3(1.0f, 0.0f, 0.0f) + vOffset;
+    private static readonly Vector3 v2 = new Vector3(0.0f, 1.0f, 0.0f) + vOffset;
+    private static readonly Vector3 v3 = new Vector3(1.0f, 1.0f, 0.0f) + vOffset;
+    private static readonly Vector3 v4 = new Vector3(0.0f, 0.0f, 1.0f) + vOffset;
+    private static readonly Vector3 v5 = new Vector3(1.0f, 0.0f, 1.0f) + vOffset;
+    private static readonly Vector3 v6 = new Vector3(0.0f, 1.0f, 1.0f) + vOffset;
+    private static readonly Vector3 v7 = new Vector3(1.0f, 1.0f, 1.0f) + vOffset;
+
 
     private static readonly Vector3[] vertices = new Vector3[]
     {
@@ -113,9 +115,9 @@ public static class BlockFactory
     /// </summary>
     /// <param name="visibleFaces"></param>
     /// <returns></returns>
-    public static Block GenerateBlock(bool[] visibleFaces, Vector3 position)
+    public static Block GenerateBlock(bool[] visibleFaces, Vector3 position, BlockComponent component)
     {
-        Block newBlock = new Block(visibleFaces, position);
+        Block newBlock = new Block(visibleFaces, position, component);
         return newBlock;
     }
 }

@@ -26,12 +26,14 @@ public class Block
             return true;
         }
     }
+    public BlockComponent Component { get; private set; }
 
-    public Block(bool[] visibleFaces, Vector3 pos)
+    public Block(bool[] visibleFaces, Vector3 pos, BlockComponent component)
     {
         _mesh = BlockFactory.GenerateMesh(visibleFaces);
         _visibleFaces = visibleFaces;
         _position = pos;
+        Component = component;
     }
 
     public void UpdateBlock()

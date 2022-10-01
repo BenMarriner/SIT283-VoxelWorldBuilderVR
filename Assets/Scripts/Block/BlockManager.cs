@@ -6,9 +6,9 @@ public static class BlockManager
 {
     private static List<Block> _blocks = new List<Block>();
 
-    public static Block SpawnBlock(Vector3 coords)
+    public static Block SpawnBlock(Vector3 coords, BlockComponent component)
     {
-        var newBlock = BlockFactory.GenerateBlock(new bool[] { true, true, true, true, true, true }, coords);
+        var newBlock = BlockFactory.GenerateBlock(new bool[] { true, true, true, true, true, true }, coords, component);
         _blocks.Add(newBlock);
         
         return newBlock;
@@ -60,7 +60,7 @@ public static class BlockManager
     /// </summary>
     /// <param name="position"></param>
     /// <returns></returns>
-    private static Block GetBlockAtPosition(Vector3 position)
+    public static Block GetBlockAtPosition(Vector3 position)
     {
         if (_blocks.Count == 0) return null;
         return _blocks.Find(x => x.Position == position);
