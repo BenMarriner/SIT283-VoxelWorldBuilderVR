@@ -5,8 +5,6 @@ using Valve.VR;
 
 public class ToolManager : MonoBehaviour
 {
-    private SteamVR_ActionSet _currActionSet;
-
     public SteamVR_Input_Sources handType;
     [HideInInspector]
     public BaseTool currentTool;
@@ -14,8 +12,7 @@ public class ToolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Temporary
-        ChangeTool(GetComponent<RectanglePlacementTool>());
+        ChangeTool(GetComponent<BlockPlacementTool>());
     }
 
     // Update is called once per frame
@@ -30,7 +27,6 @@ public class ToolManager : MonoBehaviour
 
         currentTool = tool;
         currentTool.handType = handType;
-        _currActionSet = tool.toolActionSet;
-        _currActionSet.Activate(handType, 2, false);
+        tool.toolActionSet.Activate(handType, 2, false);
     }
 }
