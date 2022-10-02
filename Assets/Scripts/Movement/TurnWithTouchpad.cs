@@ -5,7 +5,8 @@ using Valve.VR;
 
 public class TurnWithTouchpad : MonoBehaviour
 {
-    public SteamVR_Action_Vector2 turnAction;
+    public SteamVR_Action_Boolean turnLeftAction;
+    public SteamVR_Action_Boolean turnRightAction;
     public SteamVR_Input_Sources handType;
     public float rotationSpeed;
 
@@ -20,11 +21,18 @@ public class TurnWithTouchpad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotate(turnAction.GetAxis(handType));
+        if (turnLeftAction.GetStateDown(handType))
+        {
+            Rotate(Vector2.left);
+        }
+        else if (turnRightAction.GetStateDown(handType))
+        {
+            Rotate(Vector3.right);
+        }
     }
 
     void Rotate(Vector2 direction)
     {
-        playerTransform.Rotate(Vector3.up * direction.x * rotationSpeed * Time.deltaTime);
+        playerTransform.Rotate(Vector3.up * direction.x * rotationSpeed);
     }
 }

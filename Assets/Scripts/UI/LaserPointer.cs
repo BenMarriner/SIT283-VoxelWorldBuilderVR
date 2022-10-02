@@ -35,7 +35,7 @@ public class LaserPointer : MonoBehaviour
         hit = Trace();
         endPosition = transform.forward * traceDistance + transform.position;
 
-        if (hit.Equals(default))
+        if (hit.collider)
         {
             endPosition = hit.point;
         }
