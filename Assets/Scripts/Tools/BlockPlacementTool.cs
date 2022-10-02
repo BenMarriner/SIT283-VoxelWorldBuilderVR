@@ -19,6 +19,11 @@ public class BlockPlacementTool : PlacementTool
     {
         base.Update();
         spawners[0].transform.position = roundedPosition;
+
+        if (action.GetStateDown(handType))
+        {
+            spawners[0].GetComponent<BlockSpawner>().Spawn();
+        }
     }
 
     protected override void OnDestroy()
